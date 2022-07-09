@@ -1,10 +1,16 @@
 // Main calculator functions
 
-let num1 = 2;
-let num2 = 0;
+let num1 = 5;
+let num2 = 3;
 
 const add = function() {
 	return num1 + num2;
 };
 
-console.log(add())
+console.log(`The result of ${num1} + ${num2} = ${add()}`)
+
+const subtract = function() {
+	return num1 - num2;
+};
+
+console.log(`The result of ${num1} - ${num2} = ${subtract()}`)
