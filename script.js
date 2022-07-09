@@ -14,3 +14,9 @@ const subtract = function() {
 };
 
 console.log(`The result of ${num1} - ${num2} = ${subtract()}`)
+
+const multiply = function() {
+    return num1 * num2;
+};
+
+console.log(`The result of ${num1} x ${num2} = ${multiply()}`)
