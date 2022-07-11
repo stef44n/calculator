@@ -1,24 +1,25 @@
 // Main calculator functions
 
-let num1 = 6;
-let num2 = 3;
+let num1 = undefined;
+let num2 = undefined;
 let selectedButton = '';
 let displayValue = '';
 let numArray = [num1, num2];
+let result = undefined;
 
-const add = () => num1 + num2;
+const add = () => result = Number(num1) + Number(num2);
 
 // console.log(`The result of ${num1} + ${num2} = ${add()}`)
 
-const subtract = () => num1 - num2;
+const subtract = () => result = Number(num1) - Number(num2);
 
 // console.log(`The result of ${num1} - ${num2} = ${subtract()}`)
 
-const multiply = () => num1 * num2;
+const multiply = () => result = Number(num1) * Number(num2);
 
 // console.log(`The result of ${num1} x ${num2} = ${multiply()}`)
 
-const divide = () => num1 / num2;
+const divide = () => result = Number(num1) / Number(num2);
 
 // console.log(`The result of ${num1} / ${num2} = ${divide()}`)
 
@@ -50,12 +51,11 @@ const operators = document.querySelectorAll('button.operator');
 operators.forEach((button) => {
     button.addEventListener('click', () => {
         // console.log(button.id);
-        selectedButton = button.id;
-        num1 = displayValue;
-        console.log(`num1 is ${num1}`)
-        operate();
-        displayValue = undefined;
         document.getElementById('input').value = ''; // reset the display after an operator is chosen
+        equals();
+        numberAdjust();
+        selectedButton = button.id;
+        clear();
         console.log(displayValue)
     });
 });
@@ -64,13 +64,45 @@ const numbers = document.querySelectorAll('button.number');
 numbers.forEach((button) => {
     button.addEventListener('click', () => {
         // console.log(button.id);
+        if (document.getElementById('input').value == result) {
+            document.getElementById('input').value = ''
+        }
         selectedNumber = Number(button.value);
-        console.log(selectedNumber);
+        // console.log(selectedNumber);
         // let x = document.getElementsByClassName('number').value;
         document.getElementById('input').value += selectedNumber;
         displayValue = document.getElementById('input').value;
-        console.log(displayValue)
+        // console.log(displayValue)
     });
 });
 
+function numberAdjust() {
+    if (num1 === undefined) {
+        num1 = displayValue;
+    } else if (num2 === undefined) {
+        num2 = displayValue;
+        operate();
+        document.getElementById('input').value = result;
+    } else {
+        num1 = result;
+        num2 = displayValue;
+        operate();
+        document.getElementById('input').value = result;
+    }
+};
+
+function equals() {
+    if (selectedButton === 'equals') {
+        document.getElementById('equals').value = result;
+    }
+};
+
+function clear() {
+    if (selectedButton === 'clear') {
+        num1 = undefined;
+        num2 = undefined;
+        displayValue = undefined;
+        document.getElementById('input').value = '';
+    }
+};
 // console.log(operators)
