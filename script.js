@@ -4,7 +4,7 @@ let num1 = 6;
 let num2 = 3;
 let selectedButton = '';
 let displayValue = '';
-let numberArray = [num1, num2];
+let numArray = [num1, num2];
 
 const add = () => num1 + num2;
 
@@ -51,7 +51,12 @@ operators.forEach((button) => {
     button.addEventListener('click', () => {
         // console.log(button.id);
         selectedButton = button.id;
+        num1 = displayValue;
+        console.log(`num1 is ${num1}`)
         operate();
+        displayValue = undefined;
+        document.getElementById('input').value = ''; // reset the display after an operator is chosen
+        console.log(displayValue)
     });
 });
 
@@ -63,8 +68,9 @@ numbers.forEach((button) => {
         console.log(selectedNumber);
         // let x = document.getElementsByClassName('number').value;
         document.getElementById('input').value += selectedNumber;
+        displayValue = document.getElementById('input').value;
+        console.log(displayValue)
     });
 });
-
 
 // console.log(operators)
