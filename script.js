@@ -2,10 +2,9 @@
 
 let num1 = undefined;
 let num2 = undefined;
-let selectedButton = '';
-let displayValue = '';
-let numArray = [num1, num2];
-let result = undefined;
+let selectedButton = undefined;
+let displayValue = undefined;
+let result = null;
 
 const add = () => result = Number(num1) + Number(num2);
 
@@ -93,7 +92,7 @@ function numberAdjust() {
 
 function equals() {
     if (selectedButton === 'equals') {
-        document.getElementById('equals').value = result;
+        document.getElementById('input').value = result;
     }
 };
 
