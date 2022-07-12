@@ -86,7 +86,7 @@ function numberAdjust() {
     } else if (num2 === undefined) {
         num2 = displayValue;
         operate();
-        document.getElementById('input').value = result;
+        document.getElementById('input').value = Math.round(result * 100000) / 100000;
     } else {
         if (result == 'MATH ERROR') {
             result = num1;
@@ -94,7 +94,7 @@ function numberAdjust() {
         num1 = result;
         num2 = displayValue;
         operate();
-        document.getElementById('input').value = result;
+        document.getElementById('input').value = Math.round(result * 100000) / 100000;
     }
 };
 
