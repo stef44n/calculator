@@ -68,7 +68,7 @@ const numbers = document.querySelectorAll('button.number');
 numbers.forEach((button) => {
     button.addEventListener('click', () => {
         // console.log(button.id);
-        if (document.getElementById('input').value == result) {
+        if (document.getElementById('input').value == Math.round(result * 100000) / 100000) {
             document.getElementById('input').value = ''
         }
         selectedNumber = Number(button.value);
@@ -109,6 +109,7 @@ function clear() {
         num1 = undefined;
         num2 = undefined;
         displayValue = undefined;
+        result = null;
         document.getElementById('input').value = '';
     }
 };
