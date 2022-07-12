@@ -9,24 +9,60 @@ body {
 #calculator {
     display: flex;
     flex-direction: column;
-    border: solid 1px black;
+    border: solid 2px #CCCCFF;
+    border-radius: 5px;
+    background-color: #CCCCFF;
     width: 400px;
     height: 400px;
+    box-shadow:  1px 1px #838fa3,
+         1px 1px #838fa3,
+         2px 2px #838fa3,
+         3px 3px #838fa3,
+         4px 4px #838fa3,
+         5px 5px #838fa3;
 }
 
 input {
-    font-size: 30px;
+    font-size: 40px;
+    width: auto;
+    margin: 3% 2.5% 0;
+    border: 0;
+    font-family: 'Digital-7', 'waree', sans-serif;
+    background-color: rgb(194, 214, 138);
+    text-align: right;
+    border-radius: 2px;
+    box-shadow:  -1px -1px #838fa3,
+         -1px -1px #838fa3,
+         -2px -2px #838fa3;
+         /* -3px -3px #838fa3; */
 }
 
 .buttons {
     display: grid;
     height: 100%;
-    grid-template-columns: repeat(4, 25%);
-    grid-template-rows: repeat(5, 20%);
+    grid-template-columns: repeat(4, 22%);
+    grid-template-rows: repeat(5, 17%);
+    align-content: space-evenly;
+    justify-content: space-evenly;
 }
 
 button {
     font-size: 20px;
+    border: 0px solid #838fa3;
+    box-shadow:  1px 1px #838fa3,
+         1px 1px #838fa3,
+         2px 2px #838fa3,
+         3px 3px #838fa3;
+    border-radius: 5px;
+    background-color: #94BFD4;
+    font-weight: 800;
+    color: rgb(27, 27, 27);
+    
+}
+
+.operator {
+    background-color: #F7DF9D;
+    font-size: 30px;
 }
 
 #multiplication {
@@ -47,6 +83,8 @@ button {
 #clear {
     grid-column: 1;
     grid-row: 1;
+    background-color: rgb(224, 139, 139);
+    font-size: 20px;
 }
 
 #equals {
