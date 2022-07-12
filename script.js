@@ -8,15 +8,9 @@ let result = null;
 
 const add = () => result = Number(num1) + Number(num2);
 
-// console.log(`The result of ${num1} + ${num2} = ${add()}`)
-
 const subtract = () => result = Number(num1) - Number(num2);
 
-// console.log(`The result of ${num1} - ${num2} = ${subtract()}`)
-
 const multiply = () => result = Number(num1) * Number(num2);
-
-// console.log(`The result of ${num1} x ${num2} = ${multiply()}`)
 
 const divide = function() {
     if (num2 === 0) {
@@ -24,8 +18,8 @@ const divide = function() {
         return;
     }
     result = Number(num1) / Number(num2);
-}
-// console.log(`The result of ${num1} / ${num2} = ${divide()}`)
+};
+
 
 function operate(num1, num2) {
     if (selectedButton === 'addition') {
@@ -68,7 +62,8 @@ const numbers = document.querySelectorAll('button.number');
 numbers.forEach((button) => {
     button.addEventListener('click', () => {
         // console.log(button.id);
-        if (document.getElementById('input').value == Math.round(result * 100000) / 100000) {
+        if (document.getElementById('input').value == Math.round(result * 100000) / 100000 ||
+        document.getElementById('input').value == result) {
             document.getElementById('input').value = ''
         }
         selectedNumber = Number(button.value);
@@ -86,7 +81,8 @@ function numberAdjust() {
     } else if (num2 === undefined) {
         num2 = displayValue;
         operate();
-        document.getElementById('input').value = Math.round(result * 100000) / 100000;
+        displayResult();
+        // document.getElementById('input').value = Math.round(result * 100000) / 100000;
     } else {
         if (result == 'MATH ERROR') {
             result = num1;
@@ -94,13 +90,15 @@ function numberAdjust() {
         num1 = result;
         num2 = displayValue;
         operate();
-        document.getElementById('input').value = Math.round(result * 100000) / 100000;
+        displayResult();
+        // document.getElementById('input').value = Math.round(result * 100000) / 100000;
     }
 };
 
 function equals() {
     if (selectedButton === 'equals') {
-        document.getElementById('input').value = result;
+        displayResult();
+        // document.getElementById('input').value = result;
     }
 };
 
@@ -111,6 +109,14 @@ function clear() {
         displayValue = undefined;
         result = null;
         document.getElementById('input').value = '';
+    }
+};
+
+function displayResult() {
+    if (result == 'MATH ERROR') {
+        document.getElementById('input').value = result;
+    } else {
+        document.getElementById('input').value = Math.round(result * 100000) / 100000;
     }
 };
 // console.log(operators)
