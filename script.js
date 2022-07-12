@@ -18,8 +18,13 @@ const multiply = () => result = Number(num1) * Number(num2);
 
 // console.log(`The result of ${num1} x ${num2} = ${multiply()}`)
 
-const divide = () => result = Number(num1) / Number(num2);
-
+const divide = function() {
+    if (num2 === 0) {
+        result = 'MATH ERROR';
+        return;
+    }
+    result = Number(num1) / Number(num2);
+}
 // console.log(`The result of ${num1} / ${num2} = ${divide()}`)
 
 function operate(num1, num2) {
@@ -70,7 +75,7 @@ numbers.forEach((button) => {
         // console.log(selectedNumber);
         // let x = document.getElementsByClassName('number').value;
         document.getElementById('input').value += selectedNumber;
-        displayValue = document.getElementById('input').value;
+        displayValue = Number(document.getElementById('input').value);
         // console.log(displayValue)
     });
 });
@@ -83,6 +88,9 @@ function numberAdjust() {
         operate();
         document.getElementById('input').value = result;
     } else {
+        if (result == 'MATH ERROR') {
+            result = num1;
+        }
         num1 = result;
         num2 = displayValue;
         operate();
